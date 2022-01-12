@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Since this project's design does not implemented Theming & Styling  -->
+    <!--  customized variables to suffice  -->
+    <style name="Variables.Colors" parent="Variables.Typography">
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryFull">#000000</item>
+        <item name="colorPrimaryShade1">#131313</item>
+        <item name="colorPrimaryShade2">#323232</item>
+        <item name="colorSecondary">#999999</item>
+        <item name="colorSecondaryFull">#999999</item>
+        <item name="colorSecondaryShade1">#666666</item>
+        <item name="colorSecondaryShade2">#333333</item>
+        <item name="colorSecondaryShade3">#000000</item>
+
+        <item name="colorAlertWarning">#999999</item>
+        <item name="colorAlertSuccess">#666666</item>
+        <item name="colorAlertError">#EC726A</item>
+        <item name="colorGreyInactive">#ABABAB</item>
+        <item name="colorGreyBorderDivider">#DDDDDD</item>
+        <item name="colorBackground">#FFFFFF</item>
+        <item name="colorTransparent">@android:color/transparent</item>
+        <item name="colorSheet">#FFFFFF</item>
+
+        <!-- On Colors -->
+        <item name="colorOnLightRegular">#999999</item>
+        <item name="colorOnLightSecondary">#666666</item>
+        <item name="colorOnLightTertiary">#CCFFFFFF</item>
+
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorOnPrimaryShade1">#CCCCCC</item>
+        <item name="colorOnPrimaryShade2">#EEEEEE</item>
+        <item name="colorOnSecondary">#232323</item>
+        <item name="colorOnAlertError">#FFFFFF</item>
+        <item name="colorOnAlertWarning">#333333</item>
+        <item name="colorOnAlertSuccess">#000000</item>
+        <item name="rippleColor">@color/color_primary_full_8</item>
+
+        <item name="colorControlNormal">#323232</item>
+    </style>
+</resources>

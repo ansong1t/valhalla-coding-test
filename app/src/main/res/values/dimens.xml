@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="design_bottom_navigation_height" tools:override="true" tools:ignore="MissingDefaultResource">70dp</dimen>
+    <dimen name="design_bottom_navigation_icon_size" tools:override="true" tools:ignore="MissingDefaultResource">21dp</dimen>
+    <dimen name="design_bottom_navigation_text_size" tools:override="true" tools:ignore="MissingDefaultResource">13sp</dimen>
+    <dimen name="design_bottom_navigation_margin" tools:override="true" tools:ignore="MissingDefaultResource">16dp</dimen>
+</resources>

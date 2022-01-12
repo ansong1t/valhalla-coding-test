@@ -1,0 +1,13 @@
+import com.valhalla.Libs
+
+apply plugin: 'kotlin'
+
+dependencies {
+    api Libs.Kotlin.stdlib
+
+    api Libs.Coroutines.core
+
+    api Libs.Retrofit.retrofit
+
+    api Libs.Google.Dagger.dagger
+}

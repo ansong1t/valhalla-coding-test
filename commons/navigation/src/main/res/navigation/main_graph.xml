@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@+id/bottom_home_graph">
+
+    <include app:graph="@navigation/bottom_home_graph" />
+    <include app:graph="@navigation/bottom_about_graph" />
+
+    <action
+        android:id="@+id/action_global_to_home_graph"
+        app:destination="@id/bottom_home_graph"
+        app:popUpTo="@id/main_nav"
+        app:popUpToInclusive="false" />
+</navigation>

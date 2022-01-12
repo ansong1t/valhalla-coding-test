@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Running git pre-commit hook"
+
+if git diff-index --quiet HEAD --; then
+    # this happens for example on git commit --amend
+    echo "No changes detected. Skipping checker..."
+    sleep 1
+    exitcode=0
+elif [ -e .git/MERGE_HEAD ]; then
+    echo "Merge in progress... Checking against the working directory leaving unstages changes intact!"
+    ./gradlew preCommitTask --daemon
+    exitcode=$?
+else
+    ./gradlew preCommitTask --daemon
+    exitcode=$?
+fi
+exit $exitcode

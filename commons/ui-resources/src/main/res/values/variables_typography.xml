@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Variables.Typography" parent="Variables.Dimensions">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!--
+        NOTE: Typography deals per character basis AND not the entire line of text.
+        Text Color & Line Height does not apply in here. Add them to `styles.xml`
+    -->
+    <style name="TextAppearance.LargeTitle" parent="">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_xxx_large</item>
+    </style>
+
+    <style name="TextAppearance.LargeTitle.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Title1" parent="">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_x_large</item>
+    </style>
+
+    <style name="TextAppearance.Title1.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Title2" parent="">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/text_size_larger</item>
+    </style>
+
+    <style name="TextAppearance.Title2.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title2.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Title3" parent="">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="TextAppearance.Title3.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Headline" parent="">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_medium_large</item>
+    </style>
+
+    <style name="TextAppearance.Headline.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body" parent="">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_medium_large</item>
+    </style>
+
+    <style name="TextAppearance.Body.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body2" parent="">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextAppearance.Callout" parent="">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="TextAppearance.Subheadline" parent="">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextAppearance.Subheadline.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Subheadline.Regular">
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.Footnote" parent="">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+
+    <style name="TextAppearance.Caption" parent="">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_xx_small</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Light">
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Small" parent="">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_xx_small</item>
+    </style>
+
+    <style name="TextAppearance.NavigationLabel" parent="">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_x_small</item>
+    </style>
+</resources>

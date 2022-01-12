@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:drawable="?selectableItemBackgroundBorderless">
+            </item>
+            <item
+                android:width="40dp"
+                android:drawable="@drawable/ic_bottom_nav_indicator"
+                android:gravity="top|center" />
+        </layer-list>
+    </item>
+    <item>
+
+        <ripple android:color="?rippleColor"
+            android:radius="@dimen/design_bottom_navigation_height" />
+    </item>
+</selector>

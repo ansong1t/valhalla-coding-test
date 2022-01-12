@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Styles.Text.LargeTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.LargeTitle</item>
+    </style>
+
+    <style name="Styles.Text.LargeTitle.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.LargeTitle.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Title1" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Title1</item>
+    </style>
+
+    <style name="Styles.Text.Title1.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.Title1.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Title2" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Title2</item>
+    </style>
+
+    <style name="Styles.Text.Title2.Bold">
+        <item name="android:textAppearance">@style/TextAppearance.Title2.Bold</item>
+    </style>
+
+    <style name="Styles.Text.Title2.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.Title2.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Title3" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Title3</item>
+    </style>
+
+    <style name="Styles.Text.Title3.Medium" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Title3.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Title3.Bold">
+        <item name="android:textAppearance">@style/TextAppearance.Title3</item>
+    </style>
+
+    <style name="Styles.Text.Headline" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Headline</item>
+    </style>
+
+    <style name="Styles.Text.Headline.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.Headline.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Body" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Body</item>
+    </style>
+
+    <style name="Styles.Text.Body.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.Body.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Body2" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Body2</item>
+    </style>
+
+    <style name="Styles.Text.Callout" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Callout</item>
+    </style>
+
+    <style name="Styles.Text.Subheadline" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Subheadline</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <style name="Styles.Text.Subheadline.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.Subheadline.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Subheadline.Regular">
+        <item name="android:textAppearance">@style/TextAppearance.Subheadline.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Footnote" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Footnote</item>
+    </style>
+
+    <style name="Styles.Text.Footnote.Light">
+        <item name="android:textAppearance">@style/TextAppearance.Footnote</item>
+
+        <item name="android:textColor">?attr/colorGreyInactive</item>
+    </style>
+
+    <style name="Styles.Text.Caption" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Caption</item>
+    </style>
+
+    <style name="Styles.Text.Caption.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.Caption.Medium</item>
+    </style>
+
+    <style name="Styles.Text.Caption.Bold">
+        <item name="android:textAppearance">@style/TextAppearance.Caption.Bold</item>
+    </style>
+
+    <style name="Styles.Text.Caption.Light">
+        <item name="android:textAppearance">@style/TextAppearance.Caption.Light</item>
+    </style>
+
+    <style name="Styles.Text.Caption.Small">
+        <item name="android:textAppearance">@style/TextAppearance.Caption.Small</item>
+    </style>
+
+    <style name="Styles.Text.NavigationLabel" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.NavigationLabel</item>
+    </style>
+</resources>

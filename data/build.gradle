@@ -1,0 +1,77 @@
+import com.valhalla.Libs
+import com.valhalla.Android
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'dagger.hilt.android.plugin'
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+android {
+    compileSdkVersion Android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Android.minSdkVersion
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation": "$projectDir/schemas".toString(),
+                        "room.incremental"   : "true"
+                ]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            zipAlignEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation project(':base-android')
+
+    api Libs.AndroidX.Room.common
+    api Libs.AndroidX.Room.runtime
+    implementation Libs.AndroidX.Room.ktx
+    kapt Libs.AndroidX.Room.compiler
+
+    // security
+    api Libs.AndroidX.securityCrypto
+
+    api Libs.SQLCipher.sqlcipher
+    api Libs.SQLCipher.sqlite
+
+    api Libs.AndroidX.Paging.common
+
+    implementation Libs.Roomigrant.library
+    kapt Libs.Roomigrant.compiler
+
+    implementation Libs.store
+
+    api Libs.Moshi.kotlin
+    kapt Libs.Moshi.codegen
+
+    // Hilt
+    implementation Libs.Google.Hilt.hiltAndroid
+    kapt Libs.Google.Hilt.hiltCompiler
+
+    api Libs.threeTenBpNoTzdb
+}

@@ -1,0 +1,187 @@
+import com.valhalla.Libs
+import com.valhalla.Android
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
+apply from: '../secret.gradle'
+
+android {
+    compileSdkVersion Android.compileSdkVersion
+    defaultConfig {
+        applicationId "com.valhalla"
+        minSdkVersion Android.minSdkVersion
+        targetSdkVersion Android.targetSdkVersion
+        versionCode Android.versionCode
+        versionName Android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.incremental"   : "true",
+                        "room.schemaLocation":
+                                "$projectDir/schemas".toString()
+                ]
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("$projectDir/${secretDev.fileName}")
+            keyAlias secretDev.keyAlias
+            storePassword secretDev.storePassword
+            keyPassword secretDev.keyPassword
+        }
+        release {
+            storeFile file("$projectDir/${secretProd.fileName}")
+            keyAlias secretProd.keyAlias
+            storePassword secretProd.storePassword
+            keyPassword secretProd.keyPassword
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            applicationIdSuffix ".dev"
+            versionNameSuffix '-dev'
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            devApi.each { key, value ->
+                buildConfigField 'String', key, "\"" + value + "\""
+            }
+
+            resValue "string", "app_name", "$APP_NAME dev"
+            manifestPlaceholders["enableCrashReport"] = false
+        }
+
+        release {
+            debuggable false
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            ndk.debugSymbolLevel 'SYMBOL_TABLE'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            releaseApi.each { key, value ->
+                buildConfigField 'String', key, "\"" + value + "\""
+            }
+            resValue "string", "app_name", APP_NAME
+            manifestPlaceholders["enableCrashReport"] = "true"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // work-runtime-ktx 2.1.0 and above now requires Java 8
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        dataBinding true
+    }
+    buildToolsVersion = '30.0.3'
+    androidExtensions {
+        experimental = true
+    }
+    sourceSets {
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
+    sourceSets.each {
+        it.java.srcDirs += "src/$it.name/kotlin"
+    }
+
+    packagingOptions {
+        // Exclude AndroidX version files
+        exclude 'META-INF/*.version'
+        // Exclude consumer proguard files
+        exclude 'META-INF/proguard/*'
+        // Exclude the Firebase/Fabric/other random properties files
+        exclude '/*.properties'
+        exclude 'fabric/*.properties'
+        exclude 'META-INF/*.properties'
+        exclude 'META-INF/metadata.kotlin_module'
+        exclude 'META-INF/metadata.jvm.kotlin_module'
+    }
+}
+
+check.dependsOn ktlint
+
+dependencies {
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.Google.material
+    implementation Libs.AndroidX.constraintLayout
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':base-android')
+    implementation project(':commons:layout')
+    implementation project(':commons:ui-view')
+    implementation project(':commons:ui-resources')
+    implementation project(':commons:navigation')
+    implementation project(':commons:databinding')
+    implementation project(':commons:image-loading')
+    implementation project(':data')
+    implementation project(':domain')
+
+    implementation project(':features:ui-home')
+    implementation project(':features:ui-post-details')
+    implementation project(':features:ui-about')
+//    implementation project(':features:ui-wallet-transactions')
+
+    implementation Libs.AndroidX.appcompat
+
+    implementation Libs.AndroidX.recyclerview
+    implementation Libs.AndroidX.constraintLayout
+    implementation Libs.AndroidX.viewpager
+
+    implementation Libs.AndroidX.Room.runtime
+    implementation Libs.AndroidX.Room.ktx
+    kapt Libs.AndroidX.Room.compiler
+    androidTestImplementation Libs.AndroidX.Room.testing
+
+    implementation Libs.AndroidX.Work.runtimeKtx
+
+    implementation Libs.Coil.coil
+
+    implementation Libs.AndroidX.Navigation.fragment
+    implementation Libs.AndroidX.Navigation.ui
+
+    implementation Libs.Moshi.kotlin
+    kapt Libs.Moshi.codegen
+
+    implementation Libs.Coroutines.android
+    implementation Libs.Coroutines.core
+    testImplementation Libs.Coroutines.test
+
+    testImplementation Libs.AndroidX.archCoreTesting
+    testImplementation Libs.AndroidX.Test.core
+
+    testImplementation Libs.mockito
+
+    implementation Libs.Insetter.core
+
+    // Hilt
+    implementation Libs.Google.Hilt.hiltAndroid
+    kapt Libs.Google.Hilt.hiltCompiler
+
+    // Retrofit using RxJava2, Okhttp, Okhttp logging interceptor, Gson
+    implementation Libs.Retrofit.retrofit
+    implementation Libs.Retrofit.moshiConverter
+
+    implementation Libs.OkHttp.loggingInterceptor
+
+    implementation Libs.Anko.common
+
+    implementation Libs.threeTenAbp
+    debugImplementation Libs.leakCanary
+    debugImplementation Libs.chucker
+    releaseImplementation Libs.chuckerNoop
+}

@@ -1,0 +1,56 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import com.valhalla.Libs
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath Libs.androidGradlePlugin
+        classpath Libs.Kotlin.gradlePlugin
+        classpath Libs.AndroidX.Navigation.safeArgs
+        classpath Libs.Google.Hilt.hiltGradle
+        classpath Libs.Google.gmsGoogleServices
+        classpath Libs.Google.crashlyticsGradle
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id "io.gitlab.arturbosch.detekt" version "1.9.1"
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+
+    }
+    apply from: "$rootDir/detekt.gradle"
+    apply from: "$rootDir/ktlint.gradle"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+task installGitHook(type: Copy) {
+    from new File(rootProject.rootDir, 'pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+    fileMode 0777
+}
+
+tasks.getByPath(':app:preBuild').dependsOn installGitHook
+
+task preCommitTask(type: GradleBuild) {
+    tasks = ["detekt", "ktlint"]
+}
+
+task checkAllLints(type: GradleBuild, group: "verification") {
+    tasks = ["detekt", "ktlint", "lintDebug", "testDebugUnitTest"]
+}

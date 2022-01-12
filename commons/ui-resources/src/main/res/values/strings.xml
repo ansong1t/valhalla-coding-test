@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide">Hide</string>
+    <string name="error">Error</string>
+    <string name="generic_error">Oops, something went wrong. Please try again later. If the problem persists, please contact us.</string>
+</resources>

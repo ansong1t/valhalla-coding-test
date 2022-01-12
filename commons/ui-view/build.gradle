@@ -1,0 +1,63 @@
+import com.valhalla.Libs
+import com.valhalla.Android
+
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+android {
+    compileSdkVersion Android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Android.minSdkVersion
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    buildTypes {
+
+        release {
+            debuggable false
+            zipAlignEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':base-android')
+    implementation project(':commons:ui-resources')
+
+    api Libs.AndroidX.Lifecycle.livedata
+    api Libs.AndroidX.Lifecycle.viewmodel
+
+    api Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.recyclerview
+    implementation Libs.AndroidX.constraintLayout
+    api Libs.AndroidX.Fragment.fragment
+    api Libs.AndroidX.Fragment.fragmentKtx
+    implementation Libs.AndroidX.Navigation.fragment
+
+    api Libs.Google.material
+
+    // Hilt
+    implementation Libs.Google.Hilt.hiltAndroid
+    kapt Libs.Google.Hilt.hiltCompiler
+}
